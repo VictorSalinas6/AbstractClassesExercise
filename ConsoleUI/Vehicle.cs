@@ -18,5 +18,7 @@ namespace ConsoleUI
 
         }
 
+        List<Vehicle> vehicles = new List<Vehicle>();
+
     }
 }
