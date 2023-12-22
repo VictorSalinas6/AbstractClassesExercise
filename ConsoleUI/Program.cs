@@ -10,45 +10,49 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            /*
-             * Todo: Follow all comments!! 
-             * Double click on the region (gray box) to view all comments
-             */
 
-            #region Vehicles
+            var vehicles = new List<Vehicle>();
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties: Year, Make, and Model
-             * Set the defaults of the properties to something generic in the Vehicle class
-             * Vehicle class shall have an abstract method called DriveAbstract with no implementation.
-             * Vehicle class shall have a virtual method called DriveVirtual with a base implementation.
-             */
+            Vehicle Tesla = new Car()
+            {
+                Year = "2022",
+                Make = "Tesla",
+                Model = "Model 3",
+                HasTrunk = true,
+                Doors = 2
+            };
+            vehicles.Add(Tesla);
 
-            /* 
-             * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distinct property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
-             * Provide the implementations for the abstract methods
-             * Only in the Motorcycle class will you override the virtual drive method
-            */
+            Vehicle Yamaha = new Motorcycle()
+            {
+                Year = "2023",
+                Make = "Yamaha",
+                Model = "YZF-R6",
+                HasSideCart = false,
+                Passengers = 2
+            };
+            vehicles.Add(Yamaha);
 
-            // Create a list of Vehicle called vehicles
+            Vehicle genericCar = new Car();
+            vehicles.Add(genericCar);
 
-            /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
-             * 
-             * Set the properties values with object initializer syntax
-             */
+            Vehicle genericMotorcycle = new Motorcycle();
+            vehicles.Add(genericMotorcycle);
 
-            /*
-             * Add the 4 vehicles to the list
-             * Using a foreach loop iterate through the list and display each of the properties
-             */
+            foreach(var vehicle in vehicles)
+            {
+                vehicle.ListTheProperties();
+                Console.WriteLine();
+            }
 
-            // Call each of the drive methods for one car and one motorcycle
+            Tesla.DriveAbstract();
+            Tesla.DriveVirtual();
 
-            #endregion            
-            Console.ReadLine();
+            Console.WriteLine();
+
+            Yamaha.DriveAbstract();
+            Yamaha.DriveVirtual();
+
         }
     }
 }

@@ -15,10 +15,12 @@ namespace ConsoleUI
         public abstract void DriveAbstract();
         public virtual void DriveVirtual()
         {
-
+            Console.WriteLine("It drives with a wheel");
         }
 
-        List<Vehicle> vehicles = new List<Vehicle>();
-
+         public virtual void ListTheProperties()
+        {
+            Console.WriteLine($"The model {Model} it´s from {Make} from the year {Year}");
+        }
     }
 }
